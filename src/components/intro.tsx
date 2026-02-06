@@ -34,7 +34,7 @@ export function Intro() {
                 className="mr-2 inline-block origin-[70%_70%]"
                 animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
                 transition={{
-                  duration: 2.5,
+                  duration: 1.5,
                   ease: "easeInOut",
                   repeat: Infinity,
                   repeatDelay: 1,
@@ -47,17 +47,17 @@ export function Intro() {
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <a
-                href="mailto:phachara.work@gmail.com"
+                href="#contact"
                 className="inline-flex h-10 items-center justify-center rounded-full bg-brand-gradient px-5 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                Let’s talk
+                Let's work together
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="inline-flex h-10 items-center justify-center rounded-full border border-border bg-background px-5 text-sm font-semibold text-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 Download CV
-              </a>
+              </a> */}
             </div>
 
             <div className="mt-8 flex flex-wrap gap-2">
