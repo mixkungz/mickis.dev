@@ -4,16 +4,17 @@ import { motion } from "motion/react";
 
 export function Intro() {
   return (
-    <section className="relative overflow-hidden bg-background py-14">
+    <section className="relative overflow-hidden bg-muted/5 py-14">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(60%_55%_at_50%_0%,oklch(from_var(--primary)_l_c_h_/_0.16),transparent_60%)]" />
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
+      <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
         <div className="grid items-center gap-10">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs font-medium text-muted-foreground mb-2">
@@ -69,7 +70,8 @@ export function Intro() {
             </div>
           </div>
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }

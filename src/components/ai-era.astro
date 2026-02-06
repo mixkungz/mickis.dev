@@ -1,0 +1,102 @@
+---
+import AiStep from "./ai-step.astro";
+
+const steps = [
+  {
+    number: 1,
+    title: "Requirement collection",
+    description: "Understand scope, finalize specs, plan test cases",
+    icon: "💬",
+  },
+  {
+    number: 2,
+    title: "Verify with AI",
+    description: "Get AI perspective, explore alternative solutions",
+    icon: "🤖",
+  },
+  {
+    number: 3,
+    title: "Plan Changes",
+    description: "Outline architecture, decide implementation strategy",
+    icon: "📐",
+  },
+  {
+    number: 4,
+    title: "Code with AI",
+    description: "AI assists with implementation, handles boilerplate",
+    icon: "💻",
+  },
+  {
+    number: 5,
+    title: "Verify & Review",
+    description: "Review generated code, ensure quality and correctness",
+    icon: "✅",
+  },
+  {
+    number: 6,
+    title: "Refactor",
+    description: "Clean up unnecessary code, optimize and simplify",
+    icon: "🔧",
+  },
+];
+---
+
+<section id="ai-era" class="relative bg-muted/5 py-12">
+  <div class="pointer-events-none absolute inset-0 -z-10 opacity-20 bg-dots-subtle">
+  </div>
+
+  <div class="mx-auto w-full max-w-7xl px-6 lg:px-8">
+    <header class="mb-12 border-b border-border pb-8">
+    <h2 class="text-3xl font-bold tracking-tight text-foreground">
+      AI-Era Adoption
+    </h2>
+    <p class="mt-3 text-muted-foreground">
+      How I leverage AI as a thinking partner—not a replacement for engineers.
+      A structured approach that ensures quality, intentionality, and control.
+    </p>
+  </header>
+
+  <!-- Timeline -->
+  <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {steps.map((step, index) => (
+      <AiStep
+        number={step.number}
+        title={step.title}
+        description={step.description}
+        icon={step.icon}
+        isLast={index === steps.length - 1}
+      />
+    ))}
+  </div>
+
+  <!-- Key Points -->
+  <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+    <div class="rounded-2xl border border-border bg-card p-6">
+      <div class="mb-3 text-2xl">🎯</div>
+      <h3 class="font-bold text-foreground">Intentional Development</h3>
+      <p class="mt-2 text-sm text-muted-foreground">
+        Every decision is deliberate. AI helps explore options, but I decide the
+        direction.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-border bg-card p-6">
+      <div class="mb-3 text-2xl">🔍</div>
+      <h3 class="font-bold text-foreground">Quality First</h3>
+      <p class="mt-2 text-sm text-muted-foreground">
+        Code review is non-negotiable. AI-generated code is verified against
+        requirements and best practices.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-border bg-card p-6">
+      <div class="mb-3 text-2xl">⚙️</div>
+      <h3 class="font-bold text-foreground">Iterative Refinement</h3>
+      <p class="mt-2 text-sm text-muted-foreground">
+        AI is a tool for productivity, not shortcuts. Refactoring ensures clean,
+        maintainable code.
+      </p>
+    </div>
+  </div>
+  </div>
+</section>
