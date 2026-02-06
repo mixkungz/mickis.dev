@@ -1,0 +1,65 @@
+---
+interface Level {
+  number: 4 | 3 | 2 | 1;
+  title: string;
+  description: string;
+  italic?: boolean;
+}
+
+const levels: Level[] = [
+  {
+    number: 4,
+    title: "Architect / Lead",
+    description: "Designs systems, sets standards, mentors, owns outcomes.",
+  },
+  {
+    number: 3,
+    title: "Production-Ready",
+    description:
+      "Ships to production reliably; handles edge cases, monitoring, and fixes.",
+    italic: true,
+  },
+  {
+    number: 2,
+    title: "Feature Delivery",
+    description:
+      "Builds features with guidance; follows patterns; writes maintainable code.",
+  },
+  {
+    number: 1,
+    title: "Learning / Assisted",
+    description:
+      "Understands basics; needs review/paired work; building confidence.",
+  },
+];
+---
+
+<div
+  class="order-1 md:order-2 group relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-border"
+>
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-border opacity-80">
+  </div>
+  <h3 class="text-xs font-black uppercase tracking-widest text-muted-foreground">
+    Maturity Scale
+  </h3>
+
+  <div class="mt-8 space-y-8 border-l-2 border-border pl-6">
+    {levels.map(({ number, title, description, italic }) => {
+      const levelVar = `--maturity-level-${number}`;
+      return (
+        <div class="relative">
+          <div
+            class={`absolute -left-6 top-0 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-background bg-[oklch(from_var(${levelVar})_l_c_h)] shadow-[0_0_${number === 4 ? "16" : number === 3 ? "14" : number === 2 ? "12" : "10"}px_oklch(from_var(${levelVar})_l_c_h_/_${number === 4 ? "0.28" : number === 3 ? "0.22" : number === 2 ? "0.20" : "0.16"})]`}
+          >
+          </div>
+          <h4 class={`font-bold text-[oklch(from_var(${levelVar})_l_c_h)]`}>
+            Level {number} — {title}
+          </h4>
+          <p class={`text-xs ${italic ? "italic" : ""} text-muted-foreground`}>
+            {description}
+          </p>
+        </div>
+      );
+    })}
+  </div>
+</div>
