@@ -24,15 +24,14 @@ const {
 } = Astro.props;
 
 const isLarge = size === "large";
-const levelVar = `--maturity-level-${proficiencyLevel}`;
 const proficiencyBars = Math.min(proficiencyLevel, 4);
 ---
 
 <div
-  class={`group relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[oklch(from_var(${levelVar})_l_c_h)]/40 ${isLarge ? "md:col-span-2" : ""} ${orderClasses}`}
+  class={`group relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-level-${proficiencyLevel}/40 ${isLarge ? "md:col-span-2" : ""} ${orderClasses}`}
 >
   <div
-    class="pointer-events-none absolute inset-x-0 top-0 h-px bg-[oklch(from_var({levelVar})_l_c_h)] opacity-80"
+    class={`pointer-events-none absolute inset-x-0 top-0 h-px bg-level-${proficiencyLevel} opacity-80`}
   >
   </div>
   <div class={isLarge ? "relative z-10" : ""}>
@@ -43,7 +42,7 @@ const proficiencyBars = Math.min(proficiencyLevel, 4);
         </h3>
       </div>
       <svg
-        class={`${isLarge ? "h-10 w-10" : "h-6 w-6"} text-[oklch(from_var(${levelVar})_l_c_h)] ${isLarge ? "opacity-70" : "flex-shrink-0"}`}
+        class={`${isLarge ? "h-10 w-10" : "h-6 w-6"} text-level-${proficiencyLevel} ${isLarge ? "opacity-70" : "flex-shrink-0"}`}
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -64,7 +63,7 @@ const proficiencyBars = Math.min(proficiencyLevel, 4);
         <div class={isLarge ? "mb-2 flex items-center justify-between text-sm" : "mb-3 flex gap-2"}>
           {isLarge ? (
             <span class="font-medium text-foreground"
-              >Proficiency: <span class={`text-[oklch(from_var(${levelVar})_l_c_h)]`}
+              >Proficiency: <span class={`text-level-${proficiencyLevel}`}
                 >{proficiencyText}</span
               ></span
             >
@@ -74,7 +73,7 @@ const proficiencyBars = Math.min(proficiencyLevel, 4);
                 <div
                   class={`h-2 flex-1 rounded-full ${
                     i < proficiencyBars
-                      ? `bg-[oklch(from_var(${levelVar})_l_c_h)]`
+                      ? `bg-level-${proficiencyLevel}`
                       : "bg-muted"
                   }`}
                 >
@@ -89,7 +88,7 @@ const proficiencyBars = Math.min(proficiencyLevel, 4);
               <div
                 class={`h-2 flex-1 rounded-full ${
                   i < proficiencyBars
-                    ? `bg-[oklch(from_var(${levelVar})_l_c_h)] shadow-[0_0_14px_oklch(from_var(${levelVar})_l_c_h_/_0.26)]`
+                    ? `bg-level-${proficiencyLevel} shadow-level-${proficiencyLevel}`
                     : "bg-muted"
                 }`}
               >
@@ -102,7 +101,7 @@ const proficiencyBars = Math.min(proficiencyLevel, 4);
       {!isLarge && (
         <div class="mb-2 flex items-center justify-between text-sm">
           <span
-            class={`text-xs font-bold uppercase tracking-widest text-[oklch(from_var(${levelVar})_l_c_h)]`}
+            class={`text-xs font-bold uppercase tracking-widest text-level-${proficiencyLevel}`}
           >
             {proficiencyText}
           </span>
@@ -112,7 +111,7 @@ const proficiencyBars = Math.min(proficiencyLevel, 4);
       <div class={isLarge ? "flex flex-wrap gap-3" : "flex flex-wrap gap-2"}>
         {skills.map((skill) => (
           <span
-            class={`rounded-${isLarge ? "xl" : "full"} border border-border bg-muted/40 px-${isLarge ? "4" : "3"} py-${isLarge ? "2" : "1"} text-${isLarge ? "sm" : "[10px]"} font-${isLarge ? "normal" : "semibold"} uppercase text-foreground`}
+            class={isLarge ? "rounded-xl border border-border bg-muted/40 px-4 py-2 text-sm font-normal uppercase text-foreground" : "rounded-full border border-border bg-muted/40 px-3 py-1 text-[10px] font-semibold uppercase text-foreground"}
           >
             {skill}
           </span>
@@ -127,7 +126,7 @@ const proficiencyBars = Math.min(proficiencyLevel, 4);
           <ul class="space-y-2 text-sm text-foreground">
             {achievements.map((achievement, i) => (
               <li class="flex gap-3">
-                <span class={`text-[oklch(from_var(${levelVar})_l_c_h)]`}>{String(i + 1).padStart(2, "0")}.</span>
+                <span class={`text-level-${proficiencyLevel}`}>{String(i + 1).padStart(2, "0")}.</span>
                 <span>{achievement}</span>
               </li>
             ))}

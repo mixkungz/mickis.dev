@@ -44,22 +44,19 @@ const levels: Level[] = [
   </h3>
 
   <div class="mt-8 space-y-8 border-l-2 border-border pl-6">
-    {levels.map(({ number, title, description, italic }) => {
-      const levelVar = `--maturity-level-${number}`;
-      return (
-        <div class="relative">
-          <div
-            class={`absolute -left-6 top-0 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-background bg-[oklch(from_var(${levelVar})_l_c_h)] shadow-[0_0_${number === 4 ? "16" : number === 3 ? "14" : number === 2 ? "12" : "10"}px_oklch(from_var(${levelVar})_l_c_h_/_${number === 4 ? "0.28" : number === 3 ? "0.22" : number === 2 ? "0.20" : "0.16"})]`}
-          >
-          </div>
-          <h4 class={`font-bold text-[oklch(from_var(${levelVar})_l_c_h)]`}>
-            Level {number} — {title}
-          </h4>
-          <p class={`text-xs ${italic ? "italic" : ""} text-muted-foreground`}>
-            {description}
-          </p>
+    {levels.map(({ number, title, description, italic }) => (
+      <div class="relative">
+        <div
+          class={`absolute -left-6 top-0 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-background bg-level-${number} shadow-level-${number}`}
+        >
         </div>
-      );
-    })}
+        <h4 class={`font-bold text-level-${number}`}>
+          Level {number} — {title}
+        </h4>
+        <p class={`text-xs ${italic ? "italic" : ""} text-muted-foreground`}>
+          {description}
+        </p>
+      </div>
+    ))}
   </div>
 </div>

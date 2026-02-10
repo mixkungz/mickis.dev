@@ -179,6 +179,27 @@
     background-size: 20px 20px;
     background-position: center;
   }
+
+  /* Maturity Level Colors */
+  .bg-level-1 { background-color: var(--maturity-level-1); }
+  .bg-level-2 { background-color: var(--maturity-level-2); }
+  .bg-level-3 { background-color: var(--maturity-level-3); }
+  .bg-level-4 { background-color: var(--maturity-level-4); }
+
+  .text-level-1 { color: var(--maturity-level-1); }
+  .text-level-2 { color: var(--maturity-level-2); }
+  .text-level-3 { color: var(--maturity-level-3); }
+  .text-level-4 { color: var(--maturity-level-4); }
+
+  .border-level-1 { border-color: var(--maturity-level-1); }
+  .border-level-2 { border-color: var(--maturity-level-2); }
+  .border-level-3 { border-color: var(--maturity-level-3); }
+  .border-level-4 { border-color: var(--maturity-level-4); }
+
+  .shadow-level-1 { box-shadow: 0 0 10px oklch(from var(--maturity-level-1) l c h / 0.16); }
+  .shadow-level-2 { box-shadow: 0 0 12px oklch(from var(--maturity-level-2) l c h / 0.20); }
+  .shadow-level-3 { box-shadow: 0 0 14px oklch(from var(--maturity-level-3) l c h / 0.22); }
+  .shadow-level-4 { box-shadow: 0 0 16px oklch(from var(--maturity-level-4) l c h / 0.28); }
 }
 
 
